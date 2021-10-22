@@ -159,8 +159,6 @@ export default function FooterComponent() {
                     </p>
                 </div>
             </div>
-
-
         </div>
     )
 }

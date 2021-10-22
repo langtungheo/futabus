@@ -28,13 +28,14 @@ export default function HeaderComponent() {
         dispatch({
             type: SET_VISIBLE_MODAL,
             Component: <PhoneNumberLogin />
-        })
+        });
+        setVisible(false)
     }
 
-    const handlSignout = ()=>{
+    const handlSignout = () => {
         dispatch({
-            type : SET_USER,
-            user : ""
+            type: SET_USER,
+            user: ""
         })
         localStorage.removeItem("user")
     }
@@ -84,10 +85,10 @@ export default function HeaderComponent() {
                                     <div style={{ padding: "2px 0px" }} className="h-full flex items-center">
                                         {name || user ? <div className="h-full">
                                             <div className="h-full flex items-center gap-2 ml-5">
-                                                <Gravatar size={30} style={{borderRadius : "50%"}} email="langtungheo093@gmail.com" />
+                                                <Gravatar size={30} style={{ borderRadius: "50%" }} email="langtungheo093@gmail.com" />
                                                 <span className="text-white text-md ">{name || user}</span>
-                                                <div onClick={() => {handlSignout()}} className="">
-                                                <i className="text-white fas fa-sign-out-alt cursor-pointer"></i>
+                                                <div onClick={() => { handlSignout() }} className="">
+                                                    <i className="text-white fas fa-sign-out-alt cursor-pointer"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,13 +120,28 @@ export default function HeaderComponent() {
                             >{menu.title}</NavLink>
                         })}
                     </div>
-                    <div className="md:hidden flex-end px-3" style={{ width: "-webkit-fill-available" }}>
-                        {!isVisible ? <img onClick={() => {
+                    <div className="md:hidden flex justify-center items-center px-3" style={{ width: "-webkit-fill-available" }}>
+                        {name || user ? <div className="h-full">
+                            <div className="h-full flex items-center gap-2 ml-5">
+                                <Gravatar size={30} style={{ borderRadius: "50%" }} email="langtungheo093@gmail.com" />
+                                <span className="text-pre text-md ">{name || user}</span>
+                                <div onClick={() => { handlSignout() }} className="text-pre">
+                                    <i className="fas fa-sign-out-alt cursor-pointer"></i>
+                                </div>
+                            </div>
+                        </div>
+                            : ""}
+
+                        {!isVisible ?<div onClick={() => {
                             setVisible(!isVisible)
-                        }} className="h-10 ml-auto cursor-pointer" src="./images/icon/square.png" alt="" />
-                            : <img onClick={() => {
+                        }} className="h-10 flex items-center justify-center text-2xl ml-auto cursor-pointer">
+                            <i className="fas fa-bars"></i>
+                        </div>
+                            :<div onClick={() => {
                                 setVisible(!isVisible)
-                            }} className="h-8 ml-auto cursor-pointer" src="./images/icon/cancel.png" alt="" />
+                            }} className="h-10 flex items-center justify-center text-2xl ml-auto cursor-pointer" >
+                                <i className="fas fa-times"></i>
+                            </div>
                         }
                     </div>
                 </div>
@@ -138,7 +154,7 @@ export default function HeaderComponent() {
                                     <NavLink onClick={() => { setVisible(false) }} to={menu.link} className="text-gray-500 uppercase font-semibold  items-end" >{menu.title}</NavLink>
                                 </li>
                             })}
-                            <li onClick={() => { handleClick() }} className="text-gray-500 uppercase font-semibold  items-end cursor-pointer" >Đăng nhập</li>
+                            {name || user ? "" : <li onClick={() => { handleClick() }} className="text-gray-500 uppercase font-semibold  items-end cursor-pointer" >Đăng nhập</li>}
                         </ul>
 
                     </div>

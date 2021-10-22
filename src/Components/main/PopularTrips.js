@@ -27,7 +27,7 @@ function PopularTrips() {
                 <img style={{ minWidth: "160px", minHeight: "76px" }} src={trip.img} alt={trip.router} />
             </div>
             <div className="w-full" style={{ width: "-webkit-fill-available" }}>
-                <p className={"text-md sm:text-xl md:text-2xl text-center font-extrabold mb-0"}
+                <p className={"text-md xs:text-xl md:text-2xl text-center font-extrabold mb-0"}
                     style={arrIndex.includes(index) ? { color: "#00613d" } : { color: "#ef5222" }}
                 >{trip.router}</p>
                 <div className="grid grid-cols-2 xs:grid-cols-3">
