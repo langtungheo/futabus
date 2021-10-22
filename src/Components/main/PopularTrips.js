@@ -18,7 +18,7 @@ function PopularTrips() {
     }
     const renderTripsPopular = tripsPopular ? tripsPopular?.map((trip, index) => {
         return <button key={index}
-            className="transform scale-95 mb-5 hover:scale-100 duration-300 flex items-center shadow-lg rounded-md border-2 boder-gray-200"
+            className="transform scale-95 mb-5 hover:scale-105 duration-500 flex items-center shadow-lg rounded-md border-2 boder-gray-200"
             onClick={() => {
                 handleClick(trip.originCode, trip.descCode)
             }}
@@ -51,7 +51,7 @@ function PopularTrips() {
         <div className="container-cs" style={{ margin: "20px 0px" }}>
             <div className="row">
                 <h2 className="uppercase font-bold text-lg text-pre pl-4 sm:pl-0">Tuyến phổ biến</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 px-5 md:px-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 px-5 gap-2 md:px-0">
                     {renderTripsPopular}
                 </div>
             </div>
