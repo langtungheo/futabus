@@ -153,7 +153,7 @@ export default function FooterComponent() {
                     maxWidth: "936px",
                     width: "100%"
                 }} className="flex items-center flex-col justify-center px-2">
-                    <p className="license text-gray-500 tracking-tight">© 2021 | Bản quyền thuộc về Công ty Cổ Phần Xe Khách Phương Trang FUTA Bus Lines | www.futabus.vn | Chịu trách nhiệm nội dung: Đinh Văn Huỳnh</p>
+                    <p className="license text-gray-500 tracking-tight text-center">© 2021 | Bản quyền thuộc về Công ty Cổ Phần Xe Khách Phương Trang FUTA Bus Lines | www.futabus.vn | Chịu trách nhiệm nội dung: Đinh Văn Huỳnh</p>
                     <p className="license text-gray-500 tracking-tight">
                         Hao_Nguyen clone với mục đích học tập !
                     </p>
