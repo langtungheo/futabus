@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{memo} from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
@@ -6,17 +6,14 @@ import SwiperCore, {
     Autoplay, Pagination, Navigation
 } from 'swiper';
 
-import {useSelector} from "react-redux"
 
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 
-export default function SlidesComponent() {
-    const {stations} = useSelector(state => state.stations)
-    console.log(stations)
+function SlidesComponent() {
     return (
-        <div className="flex w-full justify-center items-center">
+        <div className="flex w-full justify-center items-center mt-10 md:mt-5">
             <Swiper speed={3000} loop={true} centeredSlides={true} autoplay={{
                 "delay": 3000,
                 "disableOnInteraction": false
@@ -28,3 +25,5 @@ export default function SlidesComponent() {
         </div>
     )
 }
+
+export default memo(SlidesComponent)

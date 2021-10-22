@@ -2,8 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+body::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+}
+  
+body::-webkit-scrollbar-track {
+    background: #F5F5F5;        /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #ef5222;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid #ef5222;  /* creates padding around scroll thumb */
+}
 .container-cs{
     @apply w-full flex justify-center m-0 p-0;
+}
+
+.text-pre{
+    color: #ef5222;
 }
 
 .row{
@@ -92,4 +109,160 @@
 .slide-provine{
     background-color: rgba(0, 0, 0, 0, 0,7)
     
+}
+
+.menu-top:hover{
+    color : #ef5222;
+}
+
+.country-list::-webkit-scrollbar,.ant-table-body::-webkit-scrollbar{
+    color : #ef5222 !important;
+    width : 10px !important;
+    border-radius: 4px;
+}
+.country-list::-webkit-scrollbar-thumb,.ant-table-body::-webkit-scrollbar-thumb {
+    background-color: #ef5222;
+    border-radius: 20px;
+    border: #ee5222 solid 3px;
+}
+.country-list::-webkit-scrollbar-track,.ant-table-body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.ant-table-thead > tr > th{
+    font-weight: 700 !important;
+}
+.ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before{
+    width: 0px !important;   
+}
+
+
+.btn-ticket{
+    transition: 0.3s;
+    justify-content: center;
+    align-items: center;
+    border : 1px solid #c0c6cc;
+    height : 30px
+}
+.btn-ticket:hover{
+    background-color: #ef5222;
+    border: #ef5222;
+    color : #fff;
+}
+
+.ticket{
+    width: 18px;
+    height : 18px;
+    transition : 0.3s;
+}
+.btn-ticket:hover .ticket{
+    fill: #fff;
+}
+.ant-table-placeholder{
+    @apply bg-gradient-to-r from-yellow-400 via-red-500 to-yellow-400
+}
+
+.form-trips{
+    @apply flex justify-center items-center;
+    border : 1px solid #dce1e6;    
+    padding: 10px !important;
+    border-radius: 6px;
+}
+
+.form-trips .ant-form-item-label > label{
+    color: #637280;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-trips .ant-form-item-control{
+    width: 100%;
+}
+
+.form-trips .ant-select-selector{
+    border: none !important;
+}
+
+.form-trips .ant-select-arrow{
+    display : none;
+}
+
+.form-trips .ant-select-selection-placeholder{
+    padding: 0 !important;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-trips .ant-select-selection-item{
+    padding-right: 0 !important;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-trips{
+    flex-direction: row !important;
+}
+
+.form-trips .ant-form-item-control-input-content{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-submit-trips{
+    padding: 10px 16px;
+    background-color: #ef5222;
+    position: absolute;
+    bottom: -10%;
+    right: 10%;
+    border-radius: 16px;
+    
+}
+
+.tab-ticket .ant-tabs-nav-wrap{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #00603d;
+    margin : 0 !important;
+}
+.tab-ticket .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    color : #fff;
+}
+.tab-ticket .ant-tabs-ink-bar {
+    background-color: #fff;
+}
+.tab-ticket .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar, .ant-tabs-bottom > .ant-tabs-nav .ant-tabs-ink-bar, .ant-tabs-top > div > .ant-tabs-nav .ant-tabs-ink-bar, .ant-tabs-bottom > div > .ant-tabs-nav .ant-tabs-ink-bar{
+    height : 5px !important;
+}
+.tab-ticket .ant-tabs-tab:hover{
+    color: inherit;
+}
+.tab-ticket .ant-tabs-top > .ant-tabs-nav{
+    margin: 0 !important;
+}
+.tab-ticket .ant-tabs-content-holder{
+    border: 1px solid #dce1e6;
+    padding : 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color : #637280;
+    min-height: 200px;
+
+}
+
+.react-responsive-modal-modal{
+    @apply shadow-md rounded-md;
+
+}
+
+.react-tel-input .form-control{
+    padding: 0 !important;
+    margin-left: 20% !important;
+    width: -webkit-fill-available !important;
+    border-radius: 0 5px 5px 0px !important;
+}
+.react-tel-input .flag-dropdown{
+    width: 20%;
 }

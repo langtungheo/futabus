@@ -45,6 +45,12 @@ export default class ProvincePopular extends Component {
       beforeChange: (prev, next) => { this.setState({ sildeIndex: next }) },
       responsive: [
         {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+          }
+        },
+        {
           breakpoint: 640,
           settings: {
             slidesToShow: 3,
@@ -66,7 +72,7 @@ export default class ProvincePopular extends Component {
     return (
       <>
         <div className="w-full flex flex-col justify-center items-center">
-          <p className="uppercase text-3xl font-extrabold tracking-widest mb-2" style={{ color: "#ee5222" }}>Điểm đến phổ biến</p>
+          <p className="uppercase text-xl md:text-3xl font-extrabold tracking-widest mb-2" style={{ color: "#ee5222" }}>Điểm đến phổ biến</p>
           <p className="tracking-wide" style={{ color: "#004a2f", fontSize: "min(22px,3.5vw)" }}>Gợi ý những điểm du lịch được ưa thích trong năm</p>
 
         </div>

@@ -6,13 +6,14 @@ import TripsSearch from '../Components/main/TripsSearch';
 import SlidesComponent from '../Components/slides/SlidesComponent';
 import MoreInfo from '../Components/main/MoreInfo';
 import {useDispatch} from 'react-redux'
+import { GET_TRIPS_POPULAR_SAT_GA } from '../redux/const/tripsConst';
 
 export default function Homepage() {
     const dispatch = useDispatch()
     useEffect(() => {
         window.scrollTo(0, 0);
         dispatch({
-            type: "GET_TRIPS_POPULAR_SAT_GA"
+            type: GET_TRIPS_POPULAR_SAT_GA
         })
 
     }, [])
@@ -27,6 +28,7 @@ export default function Homepage() {
             <QualityHonor />
             <ProvincePopular />
             <MoreInfo />
+
         </div>
     )
 }

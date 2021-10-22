@@ -5,7 +5,7 @@ export default function QualityHonor() {
         <div className="container-cs" style={{marginBottom : "40px"}}>
             <div className="row">
                 <div className="flex justify-center items-center overflow-hidden flex-row my-5">
-                    <span className="uppercase text-2xl md:text-4xl font-black title-quality" style={{ color: "#f15a24" }}>FUTA - Chất lượng là Danh dự</span>
+                    <span className="uppercase text-xl  md:text-4xl font-black title-quality" style={{ color: "#f15a24" }}>FUTA - Chất lượng là Danh dự</span>
                 </div>
                 <div className="grid grid-cols-1 items-center sm:grid-cols-2 lg:grid-cols-3">
                     <div className="grid grid-cols-3">

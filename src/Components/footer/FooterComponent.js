@@ -13,7 +13,7 @@ export default function FooterComponent() {
                     <div className="pl-4 lg:pl-0 pr-8 md:col-span-2 lg:col-span-1">
                         <h2 className="uppercase text-gray-600 font-semibold">tổng đài đặt vé và cskh</h2>
                         <div className="flex md:justify-between">
-                            <a href="tel:19001067" className="hover:text-red-600 text-3xl font-bold text-yellow-500" >1900 6067</a>
+                            <a href="tel:19001067" className="hover:text-red-600 text-3xl font-bold text-pre" >1900 6067</a>
                             <a href="/" >
                                 <img className="ml-4 xs:ml-32 md:ml-0" src="./images/icon/DaDangKy.png" alt="" />
                             </a>
@@ -22,7 +22,7 @@ export default function FooterComponent() {
                             <p className="font-medium text-gray-600 tracking-tight mb-0">CÔNG TY CỔ PHẦN XE KHÁCH PHƯƠNG TRANG FUTA BUS LINES</p>
                             <p className="font-medium text-gray-600 mb-0"> Địa chỉ: 468-468A Lê Văn Lương, P.Tân Phong, Q.7, TP Hồ Chí Minh. </p>
                             <p className="font-medium text-gray-600">
-                                Email : <a href="email:hotro@futabus.vn" className="hover:text-yellow-500 text-yellow-500">hotro@futabus.vn</a>
+                                Email : <a href="email:hotro@futabus.vn" className="hover:text-pre text-pre">hotro@futabus.vn</a>
                             </p>
                             <div className="flex justify-items-start">
                                 <span >
@@ -35,7 +35,7 @@ export default function FooterComponent() {
                         </div>
                         <div className="flex justify-items-center lg:justify-between">
                             <div className="">
-                                <h2 className="uppercase font-semibold text-yellow-600">kết nối với chúng tôi</h2>
+                                <h2 className="uppercase font-semibold text-pre">kết nối với chúng tôi</h2>
                                 <div className="flex">
                                     <a href="https://www.facebook.com/xephuongtrang" target="_blank" rel="noreferrer" className="mr-4">
                                         <img className="h-6 w-6" src="./images/icon/facebook.png" alt="" />
@@ -46,7 +46,7 @@ export default function FooterComponent() {
                                 </div>
                             </div>
                             <div className="lg:ml-0">
-                                <h2 className="uppercase font-semibold text-yellow-600">tải app futa</h2>
+                                <h2 className="uppercase font-semibold text-pre">tải app futa</h2>
                                 <div className="flex justify-between">
                                     <a href="http://onelink.to/futa.ios" target="_blank" rel="noreferrer" className="mr-3 bg-gray-900 flex items-center justify-center py-1 px-3 rounded-xl text-white hover:text-white" >
                                         <img className="mr-1" src="./images/icon/apple.png" alt="" />
@@ -61,7 +61,7 @@ export default function FooterComponent() {
                         </div>
                     </div>
                     <div className="md:grid-cols-1 px-4">
-                        <h2 className="text-yellow-500 font-semibold">FUTA Bus Line</h2>
+                        <h2 className="text-pre font-semibold">FUTA Bus Line</h2>
                         <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
                             <div className="list-item1">
                                 <div className="py-1">
