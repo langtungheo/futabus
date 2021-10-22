@@ -1,11 +1,28 @@
-import React, {memo} from 'react';
-import { useSelector } from "react-redux"
+import React, { memo } from 'react';
+import { useSelector, useDispatch } from "react-redux"
+import { GET_FIND_BUS_SAGA } from '../../redux/const/tripsConst';
 
 function PopularTrips() {
     const arrIndex = [1, 2, 5, 6];
-    const { tripsPopular } = useSelector(state => state.trips)
+    const dispatch = useDispatch()
+    const { tripsPopular } = useSelector(state => state.trips);
+    const handleClick = (from, to) => {
+        if (from, to) {
+            dispatch({
+                type: GET_FIND_BUS_SAGA,
+                from: from,
+                to: to
+            })
+
+        }
+    }
     const renderTripsPopular = tripsPopular ? tripsPopular?.map((trip, index) => {
-        return <button key={index} className="transform scale-95 mb-5 hover:scale-100 duration-300 flex items-center shadow-lg rounded-md border-2 boder-gray-200">
+        return <button key={index}
+            className="transform scale-95 mb-5 hover:scale-100 duration-300 flex items-center shadow-lg rounded-md border-2 boder-gray-200"
+            onClick={() => {
+                handleClick(trip.originCode, trip.descCode)
+            }}
+        >
             <div>
                 <img style={{ minWidth: "160px", minHeight: "76px" }} src={trip.img} alt={trip.router} />
             </div>
@@ -24,7 +41,7 @@ function PopularTrips() {
                     </div>
                     <div className="flex gap-1 justify-center items-center">
                         <i className="fas fa-dollar-sign"></i>
-                        <span className="text-yellow-700 font-bold">{trip.price}đ</span>
+                        <span className="text-pre font-bold">{parseInt(trip.price).toLocaleString()}đ</span>
                     </div>
                 </div>
             </div>

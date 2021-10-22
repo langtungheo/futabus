@@ -43,8 +43,7 @@ export default function Schedule() {
     {
       title: 'Tuyến xe',
       dataIndex: 'Name',
-      width: "25%",
-      className : "w-1/2",
+      width: "35%",
       render: (text, record, index) => {
         return <span key={Date.now()} className="text-lg" style={{ color: "#ef5222" }}>{text}</span>
       }
