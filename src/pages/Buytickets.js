@@ -75,7 +75,7 @@ export default function Buytickets() {
     })
     return (
         <div className="container-cs" >
-            <div className="row">
+            <div className="row overflow-hidden px-2">
                 {trips ? <div className="mt-4">
                     <div className="">
                         <span className="text-xl">Tìm thấy {trips.length} chuyến đi từ
