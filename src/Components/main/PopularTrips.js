@@ -18,7 +18,7 @@ function PopularTrips() {
     }
     const renderTripsPopular = tripsPopular ? tripsPopular?.map((trip, index) => {
         return <button key={index}
-            className="transform scale-95 mb-5 hover:scale-105 duration-500 flex items-center shadow-lg rounded-md border-2 boder-gray-200"
+            className="transform scale-95 hover:scale-105 duration-500 flex items-center shadow-lg rounded-md border-2 boder-gray-200"
             onClick={() => {
                 handleClick(trip.originCode, trip.descCode)
             }}
