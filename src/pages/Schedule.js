@@ -82,7 +82,7 @@ export default function Schedule() {
       title: '',
       render: () => {
         return <button onClick={()=>{ handleClick() }} key={Date.now()} 
-        className="btn-ticket px-3 rounded-xl flex">
+        className="btn-ticket px-1 sm:px-3 rounded-xl flex">
           <svg xmlns="http://www.w3.org/2000/svg" width="38" height="39" viewBox="0 0 38 39" fill="#ef5222" fillRule="evenodd" className="ticket"><path fillRule="nonzero" d="M23.833 11.25v-4.5c0-1.249-.975-2.25-2.166-2.25H4.333c-1.191 0-2.155 1.001-2.155 2.25v4.5c1.191 0 2.155 1.012 2.155 2.25s-.964 2.25-2.166 2.25v4.5c0 1.238.975 2.25 2.166 2.25h17.334c1.191 0 2.166-1.012 2.166-2.25v-4.5c-1.191 0-2.166-1.012-2.166-2.25s.975-2.25 2.166-2.25zm-9.75 8.438h-2.166v-2.25h2.166v2.25zm0-5.063h-2.166v-2.25h2.166v2.25zm0-5.063h-2.166v-2.25h2.166v2.25z" transform="rotate(-45 23.243 9.257)"></path></svg>
           <span>Đặt vé</span>
         </button>
