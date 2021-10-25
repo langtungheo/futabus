@@ -7,7 +7,7 @@ function PopularTrips() {
     const dispatch = useDispatch()
     const { tripsPopular } = useSelector(state => state.trips);
     const handleClick = (from, to) => {
-        if (from, to) {
+        if(from && to) {
             dispatch({
                 type: GET_FIND_BUS_SAGA,
                 from: from,

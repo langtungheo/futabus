@@ -27,6 +27,7 @@ export default function TripsSearch(props) {
         return <Option key={index} value={origin.DestCode}>{origin.DestName}</Option>
     })
 
+
     const onchaneRadio = (e) => {
         setVisibleDate(!isVisibleDate)
         
@@ -41,7 +42,7 @@ export default function TripsSearch(props) {
 
     const onFinished = (values) => {
         const {from, to} = values;
-        if(from, to){
+        if(from && to){
             dispatch({
                 type : GET_FIND_BUS_SAGA,
                 from : from,
@@ -49,7 +50,7 @@ export default function TripsSearch(props) {
             })           
         }
         else{
-            openNotificationWithIcon("error","vui lòng chọn các trường !")
+            openNotificationWithIcon("error","vui lòng chọn các trường !");
         }
     }
 
@@ -76,7 +77,6 @@ export default function TripsSearch(props) {
                             <Select className="w-full"
                                 placeholder="Chọn điểm đi"
                                 onSelect={handleSelect}
-                                autoFocus={true}
                                 >
                                 {provineFrom}
                             </Select>
