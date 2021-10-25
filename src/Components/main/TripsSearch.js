@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { SearchOutlined } from "@ant-design/icons";
 import moment from 'moment';
 import { GET_FIND_BUS_SAGA, GET_SCHEDULE_SAGA, GET_SEARCH_TRIP_SAGA } from '../../redux/const/tripsConst';
+import { openNotificationWithIcon } from '../../utils/libs/openNotification';
 function uniqByKeepFirst(a, key) {
     let seen = new Set();
     return a.filter(item => {
@@ -45,8 +46,10 @@ export default function TripsSearch(props) {
                 type : GET_FIND_BUS_SAGA,
                 from : from,
                 to : to
-            })
-            
+            })           
+        }
+        else{
+            openNotificationWithIcon("error","vui lòng chọn các trường !")
         }
     }
 
@@ -72,7 +75,9 @@ export default function TripsSearch(props) {
                         label="Điểm đi" className="form-trips">
                             <Select className="w-full"
                                 placeholder="Chọn điểm đi"
-                                onSelect={handleSelect}>
+                                onSelect={handleSelect}
+                                autoFocus={true}
+                                >
                                 {provineFrom}
                             </Select>
                         </Form.Item>

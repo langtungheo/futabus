@@ -147,14 +147,13 @@ export default function HeaderComponent() {
                 </div>
                 {isVisible
                     ? <div className="md:hidden flex-row flex-end visible-menu absolute bg-white w-full shadow-2xl duration-300">
-
-                        <ul className="flex flex-col items-center duration-200">
-                            {arrMenu.map((menu) => {
-                                return <li>
-                                    <NavLink onClick={() => { setVisible(false) }} to={menu.link} className="text-gray-500 uppercase font-semibold  items-end" >{menu.title}</NavLink>
+                        <ul className="flex flex-col items-center duration-200 mb-0">
+                            {arrMenu.map((menu, index) => {
+                                return <li key={index} className="py-1">
+                                    <NavLink onClick={() => { setVisible(false) }} to={menu.link} className="text-gray-500  uppercase font-semibold  items-end" >{menu.title}</NavLink>
                                 </li>
                             })}
-                            {name || user ? "" : <li onClick={() => { handleClick() }} className="text-gray-500 uppercase font-semibold  items-end cursor-pointer" >Đăng nhập</li>}
+                            {name || user ? "" : <li onClick={() => { handleClick() }} className="text-gray-500 py-1 uppercase font-semibold  items-end cursor-pointer" >Đăng nhập</li>}
                         </ul>
 
                     </div>
