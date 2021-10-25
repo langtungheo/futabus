@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Radio, Select, Form, DatePicker } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchOutlined } from '@ant-design/icons';
@@ -43,6 +43,8 @@ export default function TripsSearch(props) {
 		);
 	});
 
+	const searchRef = useRef(null);
+
 	const onchaneRadio = (e) => {
 		setVisibleDate(!isVisibleDate);
 	};
@@ -64,6 +66,8 @@ export default function TripsSearch(props) {
 			});
 		} else {
 			openNotificationWithIcon('error', 'vui lòng chọn các trường !');
+			console.log(searchRef.current);
+			searchRef.current.focus();
 		}
 	};
 
@@ -105,9 +109,10 @@ export default function TripsSearch(props) {
 								placeholder="Chọn điểm đi"
 								showSearch={true}
 								onSelect={handleSelect}
+								ref={searchRef}
                                 notFoundContent={
 									<span className="text-red-700">
-										Vui lòng chọn điểm đi
+										Không tìm thấy điểm đi
 									</span>
 								}
 							>
