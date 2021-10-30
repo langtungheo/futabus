@@ -1,4 +1,5 @@
 import { all } from "redux-saga/effects";
+import { actionGetAllProvince } from "./provincesPopularSaga";
 import { actionGetFindTheBus, actionGetSchedule, actionGetSearchTrips, actionGetToSchedule, actionGetTripsPopular } from "./tripsPopularSaga";
 
 export function* rootSaga(){
@@ -8,6 +9,7 @@ export function* rootSaga(){
         actionGetToSchedule(),
         actionGetSearchTrips(),
         actionGetFindTheBus(),
+        actionGetAllProvince(),
         
 
         

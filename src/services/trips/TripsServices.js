@@ -38,7 +38,6 @@ export class tripsServices {
         })
     }
 
-
 }
 
 export const TripsServices = new tripsServices()

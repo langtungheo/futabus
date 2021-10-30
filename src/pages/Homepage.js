@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import PopularTrips from '../Components/main/PopularTrips';
 import QualityHonor from '../Components/main/QualityHonor';
-import ProvincePopular from '../Components/main/PopularProvince';
 import TripsSearch from '../Components/main/TripsSearch';
 import SlidesComponent from '../Components/slides/SlidesComponent';
 import MoreInfo from '../Components/main/MoreInfo';
 import {useDispatch} from 'react-redux'
 import { GET_TRIPS_POPULAR_SAT_GA } from '../redux/const/tripsConst';
+import ProvincesPopular from '../Components/main/ProvincesPopular';
+import PopularTrips from '../Components/main/PopularTrips';
 
 export default function Homepage() {
     const dispatch = useDispatch()
@@ -26,7 +26,7 @@ export default function Homepage() {
             <SlidesComponent />
             <PopularTrips />
             <QualityHonor />
-            <ProvincePopular />
+            <ProvincesPopular />
             <MoreInfo />
 
         </div>

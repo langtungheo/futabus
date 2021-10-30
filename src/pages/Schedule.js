@@ -6,7 +6,8 @@ import SlidesComponent from '../Components/slides/SlidesComponent';
 import { GET_SCHEDULE_SAGA, GET_TO_SCHEDULE_SAGA } from '../redux/const/tripsConst';
 import { openNotificationWithIcon } from '../utils/libs/openNotification';
 
-export default function Schedule() {
+export default function Schedule(props) {
+  const {descode} =props.match.params
   const dispatch = useDispatch();
   const searchRef = useRef(null);
   const onChange = (e) => {
@@ -94,7 +95,12 @@ export default function Schedule() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch({
+    descode
+      ?dispatch({
+      type: GET_TO_SCHEDULE_SAGA,
+      keyWord: descode
+    })
+    :dispatch({
       type: "GET_SCHEDULE_SAGA",
       keyWord: ""
     })

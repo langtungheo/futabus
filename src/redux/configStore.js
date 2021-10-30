@@ -1,6 +1,7 @@
 import { applyMiddleware, createStore, combineReducers } from "redux";
 import createmidlleWare from "redux-saga";
 import modalReducer from "./reducers/ModalReducer";
+import provincesReducer from "./reducers/provincesReducer";
 import stationsReducers from "./reducers/stationsReducers";
 import tripsReducers from "./reducers/tripsReducers";
 import userReducers from "./reducers/userReducers";
@@ -12,6 +13,7 @@ const rootReducers = combineReducers({
     trips : tripsReducers,
     modal : modalReducer,
     user : userReducers,
+    provinces : provincesReducer,
 })
 
 const store = createStore(rootReducers, applyMiddleware(midlleWareSaga))
