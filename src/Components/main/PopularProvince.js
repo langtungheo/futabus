@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {PureComponent } from "react";
 import Slider from "react-slick";
 import camau_namcan from "../../assets/imgsSlide/camau_namcan.png"
 import cantho from "../../assets/imgsSlide/cantho.png"
@@ -18,7 +18,7 @@ import saigon from "../../assets/imgsSlide/saigon.png"
 import leftArrow from "../../assets/arrowSlie/left-arrow.svg"
 import rightArrow from "../../assets/arrowSlie/right-arrow.svg"
 
-export default class ProvincePopular extends Component {
+export default class ProvincePopular extends PureComponent {
   state = { sildeIndex: 0 }
   render() {
     const SlickArrowLeft = ({ currentSlide, slideCount, onClick }) => (
@@ -81,7 +81,7 @@ export default class ProvincePopular extends Component {
             {arrLocations.map((province, index) => {
               return <div key={index}>
                 <div className={this.state.sildeIndex === index ? "slideShow" : "slideHide"}>
-                  <img className="w-full h-64 rounded-xl" src={province} alt={province} />
+                  <img className="w-full h-64 rounded-xl object-cover" src={province} alt={province} />
                   <div className="flex absolute justify-center items-center gap-2 transform translate-x-1/2  bottom-5 right-1/2">
                     <i className="fas fa-map-marker-alt" style={{ color: "white" }}></i>
                     <span className="text-white text-xl">Hà Nội</span>
