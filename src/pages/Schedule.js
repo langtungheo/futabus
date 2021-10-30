@@ -7,7 +7,7 @@ import { GET_SCHEDULE_SAGA, GET_TO_SCHEDULE_SAGA } from '../redux/const/tripsCon
 import { openNotificationWithIcon } from '../utils/libs/openNotification';
 
 export default function Schedule(props) {
-  const descode = props.location.search.slice(9);
+  const destcode = props.location.search.slice(6);
   const dispatch = useDispatch();
   const searchRef = useRef(null);
   const onChange = (e) => {
@@ -95,10 +95,10 @@ export default function Schedule(props) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    descode
+    destcode
       ?dispatch({
       type: GET_TO_SCHEDULE_SAGA,
-      keyWord: descode
+      keyWord: destcode
     })
     :dispatch({
       type: "GET_SCHEDULE_SAGA",

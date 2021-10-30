@@ -91,7 +91,7 @@ const ProvincesPopular = () => {
 						? provincesPopular.map((province, index) => {
 								return (
 									<Link
-										to={`/lich-trinh?desname=${province.DESNAME}`}
+										to={`/lich-trinh?dest=${province.DESNAME}`}
 										className={
 											slideIndex === index
 												? ''
