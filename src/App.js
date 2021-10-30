@@ -16,7 +16,7 @@ function App() {
       <ModalHOCComponent />
       <Switch>
         <HomeTemplate path="/lich-trinh" exact Component={Schedule} />
-        <HomeTemplate name='/lich-trinh' path="/lich-trinh/:descode" exact Component={Schedule} />
+        {/* <HomeTemplate name='/lich-trinh' path="/lich-trinh/:descode" exact Component={Schedule} /> */}
         <HomeTemplate path="/mua-ve" exact Component={Buytickets} />
         <HomeTemplate path="/mua-ve/:id" exact Component={Buytickets} />
         <HomeTemplate path="/" exact Component={Homepage} />

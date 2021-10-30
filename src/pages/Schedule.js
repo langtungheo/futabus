@@ -7,7 +7,7 @@ import { GET_SCHEDULE_SAGA, GET_TO_SCHEDULE_SAGA } from '../redux/const/tripsCon
 import { openNotificationWithIcon } from '../utils/libs/openNotification';
 
 export default function Schedule(props) {
-  const {descode} =props.match.params
+  const descode = props.location.search.slice(9);
   const dispatch = useDispatch();
   const searchRef = useRef(null);
   const onChange = (e) => {
@@ -104,7 +104,6 @@ export default function Schedule(props) {
       type: "GET_SCHEDULE_SAGA",
       keyWord: ""
     })
-
   }, [])
   return (
     <div className="container-cs overflow-hidden">
