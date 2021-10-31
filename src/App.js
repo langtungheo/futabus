@@ -8,11 +8,9 @@ import Buytickets from './pages/Buytickets';
 import ModalHOCComponent from './HOC/modal/ModalHOCComponent';
 
 
-const hist = createBrowserHistory();
-
 function App() {
   return (
-    <Router history={hist}>
+    <Router >
       <ModalHOCComponent />
       <Switch>
         <HomeTemplate path="/lich-trinh" exact Component={Schedule} />
