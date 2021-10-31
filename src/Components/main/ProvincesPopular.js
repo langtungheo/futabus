@@ -106,7 +106,7 @@ const ProvincesPopular = () => {
 						? provincesPopular.map((province, index) => {
 								return (
 									<Link
-										to={`/lich-trinh?dest=${province.DESNAME}`}
+										to={`/lich-trinh?dest=${province.DESTCODE}`}
 										className={
 											slideIndex === index
 												? ''
@@ -125,7 +125,7 @@ const ProvincesPopular = () => {
 											<img
 												className="w-full h-64 rounded-xl object-cover"
 												src={province.img}
-												alt={province.DESNAME}
+												alt={province.DESTNAME}
 											/>
 											<div className="flex absolute justify-center items-center gap-2 transform translate-x-1/2  bottom-5 right-1/2">
 												<i
@@ -133,7 +133,7 @@ const ProvincesPopular = () => {
 													style={{ color: 'white' }}
 												></i>
 												<span className="text-white text-xl">
-													{province.DESNAME}
+													{province.DESTNAME}
 												</span>
 											</div>
 										</div>
