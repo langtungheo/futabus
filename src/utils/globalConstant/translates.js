@@ -10,7 +10,7 @@ export const translationsEn = {
     oneWay : "One way",
     roundTrip : "Round trip",
     origin : "Origin",
-    dest : 'Dest',
+    dest : 'Destination',
     findBus : "Find the bus",
     departure : "Departure day",
     return : "Return day",
