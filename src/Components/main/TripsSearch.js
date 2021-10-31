@@ -158,19 +158,19 @@ export default function TripsSearch(props) {
 							name="from-date"
 							label={t('departure')}
 							className="form-trips"
+							initialValue={moment(new Date(), 'YYYY-MM-DD')}
 						>
-							<DatePicker
-								defaultValue={moment('2021-10-21', 'DD-MM-YYY')}
-							/>
+							<DatePicker format={'DD-MM-YYYY'} />
 						</Form.Item>
 						<Form.Item
 							name="to-date"
 							label={t('return')}
 							className="form-trips"
+							initialValue={moment(new Date(), 'YYYY-MM-DD')}
 						>
 							<DatePicker
 								disabled={isVisibleDate}
-								defaultValue={moment('2021-10-20', 'DD-MM-YYY')}
+								format={'DD-MM-YYYY'}
 							/>
 						</Form.Item>
 					</div>
