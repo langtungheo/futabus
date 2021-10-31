@@ -1,13 +1,28 @@
 import React, { useState, useEffect, memo } from 'react';
 import Slider from 'react-slick';
 import { useSelector, useDispatch } from 'react-redux';
+import i18n from "i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
 import leftArrow from '../../assets/arrowSlie/left-arrow.svg';
 import rightArrow from '../../assets/arrowSlie/right-arrow.svg';
 import { GET_ALL_PROVINCES_POPULAR } from '../../redux/const/provincesConst';
-import { history } from '../../utils/globalConstant/historyGlobal';
 import { Link } from 'react-router-dom';
+import { translationsEn, translationsVi } from '../../utils/globalConstant/translates';
+
+i18n
+    .use(initReactI18next) 
+    .init({
+        resources: {
+            en: { translation: translationsEn },
+            vi: { translation: translationsVi },
+        },
+        lng: "vi",
+        fallbackLng: "vi",
+        interpolation: { escapeValue: false },
+    });
 
 const ProvincesPopular = () => {
+	const {t} = useTranslation()
 	const [slideIndex, setSlideIndex] = useState(0);
 	const { provincesPopular } = useSelector((state) => state.provinces);
 	const dispatch = useDispatch();
@@ -76,13 +91,13 @@ const ProvincesPopular = () => {
 					className="uppercase text-xl md:text-3xl font-extrabold tracking-widest mb-2"
 					style={{ color: '#ee5222' }}
 				>
-					Điểm đến phổ biến
+					{t('destinations')}
 				</p>
 				<p
 					className="tracking-wide"
 					style={{ color: '#004a2f', fontSize: 'min(22px,3.5vw)' }}
 				>
-					Gợi ý những điểm du lịch được ưa thích trong năm
+					{t('tourist')}
 				</p>
 			</div>
 			<div className="relative slide-provine">
@@ -98,6 +113,7 @@ const ProvincesPopular = () => {
 												: 'pointer-events-none'
 										}
 										key={index}
+                                        
 									>
 										<div
 											className={

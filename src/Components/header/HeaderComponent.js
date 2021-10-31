@@ -1,22 +1,41 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Gravatar from 'react-gravatar';
+import i18n from "i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_VISIBLE_MODAL } from '../../redux/const/modalConst';
 import PhoneNumberLogin from '../phoneInput/PhoneNumberLogin';
 import { SET_USER } from '../../redux/const/userConst';
+import { translationsEn, translationsVi } from '../../utils/globalConstant/translates';
 
 const arrMenu = [
-    { title: "trang chủ", link: "/" },
-    { title: "lịch trình", link: "/lich-trinh" },
-    { title: "tin tức", link: "/" },
-    { title: "tuyển dụng", link: "/" },
-    { title: "liên hệ", link: "/" },
-    { title: "hóa đơn", link: "/" },
-    { title: "về chúng tôi", link: "/" },
+    { title: "home", link: "/" },
+    { title: "schedule", link: "/lich-trinh" },
+    { title: "news", link: "/" },
+    { title: "recruitment", link: "/" },
+    { title: "contact", link: "/" },
+    { title: "receipt", link: "/" },
+    { title: "aboutus", link: "/" },
 ]
 
+
+
+i18n
+    .use(initReactI18next) 
+    .init({
+        resources: {
+            en: { translation: translationsEn },
+            vi: { translation: translationsVi },
+        },
+        lng: "vi",
+        fallbackLng: "vi",
+        interpolation: { escapeValue: false },
+    });
+
 export default function HeaderComponent() {
+    const { t } = useTranslation();
+
     const dispatch = useDispatch();
     const isMenu = sessionStorage.getItem("isMenu")
     const [isVisible, setVisible] = useState(false)
@@ -24,6 +43,9 @@ export default function HeaderComponent() {
     const { name } = useSelector(state => state.user);
     const user = localStorage.getItem('user')
 
+    const handleClickChangeLanguage = (lang) => {
+        i18n.changeLanguage(lang)
+    }
     const handleClick = () => {
         dispatch({
             type: SET_VISIBLE_MODAL,
@@ -72,12 +94,12 @@ export default function HeaderComponent() {
                                 <a target="_blank" rel="noreferrer" className="h-full flex items-center ml-4" href="https://www.youtube.com/channel/UCs32uT002InnxFnfXCRN48A?view_as=subscriber" >
                                     <img className="h-3/4" src="./images/icon/youtube.png" alt="" />
                                 </a>
-                                <div className="flex items-center h-full ml-4">
-                                    <button className="h-full flex items-center">
+                                <div  className="flex items-center h-full ml-4">
+                                    <button onClick={()=>{handleClickChangeLanguage('vi')}} className="h-full flex items-center">
                                         <img className="h-3/4" src="./images/icon/vietnam.png" alt="" />
                                         <span className="text-white">VN</span>
                                     </button>
-                                    <button className="h-full flex items-center ml-6">
+                                    <button onClick={()=>{handleClickChangeLanguage('en')}} className="h-full flex items-center ml-6">
                                         <img className="h-3/4" src="./images/icon/united-kingdom.png" alt="" />
                                         <span className="text-white">EN</span>
                                     </button>
@@ -92,9 +114,9 @@ export default function HeaderComponent() {
                                                 </div>
                                             </div>
                                         </div>
-                                            : <button onClick={() => { handleClick() }} className="h-full flex items-center gap-2 bg-red-500 ml-5 px-3 rounded-md">
+                                            : <button onClick={() => { handleClick() }} className="h-full w-32 flex items-center justify-center gap-2 bg-red-500 ml-5 rounded-md">
                                                 <img className="h-3/4" src="./images/icon/user.png" alt="" />
-                                                <span className="text-white text-xs font-semibold">Đăng nhập</span>
+                                                <span className="text-white text-xs font-semibold">{t('login')}</span>
                                             </button>
 
                                         }
@@ -117,7 +139,7 @@ export default function HeaderComponent() {
                                     setActiveMenu(index);
                                     sessionStorage.setItem("isMenu", index)
                                 }}
-                            >{menu.title}</NavLink>
+                            >{t(menu.title)}</NavLink>
                         })}
                     </div>
                     <div className="md:hidden flex justify-center items-center px-3" style={{ width: "-webkit-fill-available" }}>
@@ -132,12 +154,12 @@ export default function HeaderComponent() {
                         </div>
                             : ""}
 
-                        {!isVisible ?<div onClick={() => {
+                        {!isVisible ? <div onClick={() => {
                             setVisible(!isVisible)
                         }} className="h-10 flex items-center justify-center text-2xl ml-auto cursor-pointer">
                             <i className="fas fa-bars"></i>
                         </div>
-                            :<div onClick={() => {
+                            : <div onClick={() => {
                                 setVisible(!isVisible)
                             }} className="h-10 flex items-center justify-center text-2xl ml-auto cursor-pointer" >
                                 <i className="fas fa-times"></i>

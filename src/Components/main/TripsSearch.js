@@ -3,12 +3,15 @@ import { Radio, Select, Form, DatePicker } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchOutlined } from '@ant-design/icons';
 import moment from 'moment';
+import i18n from "i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
 import {
 	GET_FIND_BUS_SAGA,
 	GET_SCHEDULE_SAGA,
 	GET_SEARCH_TRIP_SAGA,
 } from '../../redux/const/tripsConst';
 import { openNotificationWithIcon } from '../../utils/libs/openNotification';
+import { translationsEn, translationsVi } from '../../utils/globalConstant/translates';
 function uniqByKeepFirst(a, key) {
 	let seen = new Set();
 	return a.filter((item) => {
@@ -17,7 +20,20 @@ function uniqByKeepFirst(a, key) {
 	});
 }
 
+i18n
+    .use(initReactI18next) 
+    .init({
+        resources: {
+            en: { translation: translationsEn },
+            vi: { translation: translationsVi },
+        },
+        lng: "vi",
+        fallbackLng: "vi",
+        interpolation: { escapeValue: false },
+    });
+
 export default function TripsSearch(props) {
+	const {t} = useTranslation()
 	const [isVisibleDate, setVisibleDate] = useState(true);
 	const { Option } = Select;
 	const dispatch = useDispatch();
@@ -86,10 +102,10 @@ export default function TripsSearch(props) {
 					defaultValue={0}
 				>
 					<Radio value={0}>
-						<span className="font-semibold ">Một chiều</span>
+						<span className="font-semibold ">{t('oneWay')}</span>
 					</Radio>
 					<Radio value={1}>
-						<span className="font-semibold ">Khứ hồi</span>
+						<span className="font-semibold ">{t('roundTrip')}</span>
 					</Radio>
 				</Radio.Group>
 				<Form
@@ -101,7 +117,7 @@ export default function TripsSearch(props) {
 					<div className="grid grid-cols-2 gap-1">
 						<Form.Item
 							name="from"
-							label="Điểm đi"
+							label={t('origin')}
 							className="form-trips"
 						>
 							<Select
@@ -121,7 +137,7 @@ export default function TripsSearch(props) {
 						</Form.Item>
 						<Form.Item
 							name="to"
-							label="Điểm đến"
+							label={t('dest')}
 							className="form-trips"
 						>
 							<Select
@@ -140,7 +156,7 @@ export default function TripsSearch(props) {
 					<div className="grid grid-cols-2 gap-1">
 						<Form.Item
 							name="from-date"
-							label="Ngày đi"
+							label={t('departure')}
 							className="form-trips"
 						>
 							<DatePicker
@@ -149,7 +165,7 @@ export default function TripsSearch(props) {
 						</Form.Item>
 						<Form.Item
 							name="to-date"
-							label="Ngày về"
+							label={t('return')}
 							className="form-trips"
 						>
 							<DatePicker
@@ -160,11 +176,11 @@ export default function TripsSearch(props) {
 					</div>
 					<button
 						type="submit"
-						className="btn-submit-trips flex justify-center items-center shadow-lg"
+						className="btn-submit-trips flex justify-center items-center shadow-lg w-40"
 					>
 						<SearchOutlined style={{ color: '#fff' }} />
 						<span className="uppercase text-white">
-							Tìm chuyến xe
+							{t('findBus')}
 						</span>
 					</button>
 				</Form>

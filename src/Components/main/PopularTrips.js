@@ -1,8 +1,26 @@
 import React, { memo } from 'react';
+import i18n from "i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux"
 import { GET_FIND_BUS_SAGA } from '../../redux/const/tripsConst';
+import { translationsEn, translationsVi } from '../../utils/globalConstant/translates';
+
+
+i18n
+    .use(initReactI18next) 
+    .init({
+        resources: {
+            en: { translation: translationsEn },
+            vi: { translation: translationsVi },
+        },
+        lng: "vi",
+        fallbackLng: "vi",
+        interpolation: { escapeValue: false },
+    });
+
 
 function PopularTrips() {
+    const {t} = useTranslation()
     const arrIndex = [1, 2, 5, 6];
     const dispatch = useDispatch()
     const { tripsPopular } = useSelector(state => state.trips);
@@ -50,7 +68,7 @@ function PopularTrips() {
     return (
         <div className="container-cs" style={{ margin: "20px 0px" }}>
             <div className="row">
-                <h2 className="uppercase font-bold text-lg text-pre pl-4 sm:pl-0">Tuyến phổ biến</h2>
+                <h2 className="uppercase font-bold text-lg text-pre pl-4 sm:pl-0">{t('popularSchedule')}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 px-5 gap-2 md:px-0">
                     {renderTripsPopular}
                 </div>
