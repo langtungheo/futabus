@@ -17,7 +17,9 @@ export const translationsEn = {
     popularSchedule : "Popular Schedule",
     quality : "QUALITY IS HONOR",
     destinations : "Popular destinations",
-    tourist : 'Suggesting favorite tourist destinations of the year'
+    tourist : 'Suggesting favorite tourist destinations of the year',
+    chooseOrigin : "Choose origin",
+    chooseDestination : "Choose Destination"
 };
 
 export const translationsVi = {
@@ -39,6 +41,8 @@ export const translationsVi = {
     popularSchedule : "Tuyến phổ biến",
     quality : "Chất lượng là danh dự",
     destinations : "điểm đến phổ biến",
-    tourist : 'Gợi ý những điểm du lịch được ưa thích trong năm'
+    tourist : 'Gợi ý những điểm du lịch được ưa thích trong năm',
+    chooseOrigin : "Chọn điểm đi",
+    chooseDestination : "Chọn điểm đến"
 
 };

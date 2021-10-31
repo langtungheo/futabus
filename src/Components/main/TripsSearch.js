@@ -122,7 +122,7 @@ export default function TripsSearch(props) {
 						>
 							<Select
 								className="w-full"
-								placeholder="Chọn điểm đi"
+								placeholder={t('chooseOrigin')}
 								showSearch={true}
 								onSelect={handleSelect}
 								ref={searchRef}
@@ -146,7 +146,7 @@ export default function TripsSearch(props) {
 										Vui lòng chọn điểm đi
 									</span>
 								}
-								placeholder="Chọn điểm đến"
+								placeholder={t('chooseDestination')}
                                 showSearch={true}
 							>
 								{provineTo}
