@@ -63,7 +63,7 @@ export default function HeaderComponent() {
 
 	return (
 		<>
-			<div className="top-bar bg-white sticky top-0 shadow-lg md:shadow-xl flex-col items-center justify-center z-50">
+			<div className="top-bar">
 				<div
 					style={{ backgroundColor: '#26613c' }}
 					className="w-full h-9 hidden sm:block overflow-hidden"

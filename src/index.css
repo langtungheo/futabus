@@ -42,6 +42,11 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
+.top-bar{
+    @apply bg-white sticky top-0 shadow-lg md:shadow-xl flex-col items-center justify-center;
+    z-index: 99999;
+}
+
 .mark:hover{
     transform: scale(1.1);
 }
@@ -168,6 +173,8 @@ body::-webkit-scrollbar-thumb {
     border : 1px solid #dce1e6;    
     padding: 10px !important;
     border-radius: 6px;
+    flex-direction: row !important;
+    margin-bottom: 0 !important;
 }
 
 .form-trips .ant-form-item-label > label{
@@ -201,14 +208,15 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     align-items: center;
 }
-.form-trips{
-    flex-direction: row !important;
-}
 
 .form-trips .ant-form-item-control-input-content{
     display : flex;
     justify-content: center;
     align-items: center;
+}
+
+.form-trips__arrow{
+    @apply absolute cursor-pointer hover:rotate-180 duration-200 top-1/2 left-1/2 transform -translate-y-1/2 z-10 -translate-x-1/2;
 }
 
 .btn-submit-trips{

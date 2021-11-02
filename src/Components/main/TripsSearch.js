@@ -1,17 +1,21 @@
 import React, { useEffect, useState, useRef } from 'react';
+import _ from 'lodash'
 import { Radio, Select, Form, DatePicker } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchOutlined } from '@ant-design/icons';
 import moment from 'moment';
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import { useTranslation, initReactI18next } from 'react-i18next';
 import {
 	GET_FIND_BUS_SAGA,
 	GET_SCHEDULE_SAGA,
 	GET_SEARCH_TRIP_SAGA,
 } from '../../redux/const/tripsConst';
 import { openNotificationWithIcon } from '../../utils/libs/openNotification';
-import { translationsEn, translationsVi } from '../../utils/globalConstant/translates';
+import {
+	translationsEn,
+	translationsVi,
+} from '../../utils/globalConstant/translates';
 function uniqByKeepFirst(a, key) {
 	let seen = new Set();
 	return a.filter((item) => {
@@ -20,21 +24,22 @@ function uniqByKeepFirst(a, key) {
 	});
 }
 
-i18n
-    .use(initReactI18next) 
-    .init({
-        resources: {
-            en: { translation: translationsEn },
-            vi: { translation: translationsVi },
-        },
-        lng: "vi",
-        fallbackLng: "vi",
-        interpolation: { escapeValue: false },
-    });
+i18n.use(initReactI18next).init({
+	resources: {
+		en: { translation: translationsEn },
+		vi: { translation: translationsVi },
+	},
+	lng: 'vi',
+	fallbackLng: 'vi',
+	interpolation: { escapeValue: false },
+});
 
 export default function TripsSearch(props) {
-	const {t} = useTranslation()
+	const { t } = useTranslation();
 	const [isVisibleDate, setVisibleDate] = useState(true);
+	const [valueFrom, setValueFrom] = useState('TPHCM');
+	const [form] = Form.useForm();
+
 	const { Option } = Select;
 	const dispatch = useDispatch();
 	const { schedule, province } = useSelector((state) => state.trips);
@@ -59,7 +64,8 @@ export default function TripsSearch(props) {
 		);
 	});
 
-	const searchRef = useRef(null);
+	const fromRef = useRef(null);
+	const toRef = useRef(null);
 
 	const onchaneRadio = (e) => {
 		setVisibleDate(!isVisibleDate);
@@ -82,11 +88,21 @@ export default function TripsSearch(props) {
 			});
 		} else {
 			openNotificationWithIcon('error', 'vui lòng chọn các trường !');
-			console.log(searchRef.current);
-			searchRef.current.focus();
 		}
 	};
-
+	const handleClickArrow = async () => {
+		dispatch({
+			type: GET_SEARCH_TRIP_SAGA,
+			keyWord: toRef.current.props.value,
+		});
+		_.delay(()=>{
+			form.setFieldsValue({
+				from : toRef.current.props.value,
+				to : fromRef.current.props.value
+			})
+		}, 300)
+		
+	};
 	useEffect(() => {
 		dispatch({
 			type: GET_SCHEDULE_SAGA,
@@ -109,24 +125,24 @@ export default function TripsSearch(props) {
 					</Radio>
 				</Radio.Group>
 				<Form
+					form={form}
 					onFinish={onFinished}
 					layout="vertical"
-					style={{ marginTop: '20px' }}
+					style={{ padding: '24px 0px' }}
 					className="grid grid-cols-1 gap-2 md:grid-cols-2"
 				>
-					<div className="grid grid-cols-2 gap-1">
+					<div className="grid grid-cols-2 gap-4 relative">
 						<Form.Item
 							name="from"
 							label={t('origin')}
 							className="form-trips"
 						>
 							<Select
-								className="w-full"
+								className="w-full text-xl font-bold"
 								placeholder={t('chooseOrigin')}
-								showSearch={true}
 								onSelect={handleSelect}
-								ref={searchRef}
-                                notFoundContent={
+								ref={fromRef}
+								notFoundContent={
 									<span className="text-red-700">
 										Không tìm thấy điểm đi
 									</span>
@@ -135,6 +151,14 @@ export default function TripsSearch(props) {
 								{provineFrom}
 							</Select>
 						</Form.Item>
+						<img
+							className="form-trips__arrow"
+							onClick={() => {
+								handleClickArrow();
+							}}
+							src="./images/icon/arrowtrip.png"
+							alt=""
+						/>
 						<Form.Item
 							name="to"
 							label={t('dest')}
@@ -147,13 +171,14 @@ export default function TripsSearch(props) {
 									</span>
 								}
 								placeholder={t('chooseDestination')}
-                                showSearch={true}
+								className="text-xl font-bold"
+								ref={toRef}
 							>
 								{provineTo}
 							</Select>
 						</Form.Item>
 					</div>
-					<div className="grid grid-cols-2 gap-1">
+					<div className="grid grid-cols-2 gap-4">
 						<Form.Item
 							name="from-date"
 							label={t('departure')}

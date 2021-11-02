@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import QualityHonor from '../Components/main/QualityHonor';
 import TripsSearch from '../Components/main/TripsSearch';
 import SlidesComponent from '../Components/slides/SlidesComponent';
+import { Image } from "react-image-and-background-image-fade";
 import MoreInfo from '../Components/main/MoreInfo';
 import {useDispatch} from 'react-redux'
 import { GET_TRIPS_POPULAR_SAT_GA } from '../redux/const/tripsConst';
@@ -20,7 +21,11 @@ export default function Homepage() {
     return (
         <div >
             <div className="w-full">
-                <img src="./images/img/banner.png" alt="" className="w-full" />
+                <Image
+                    src={'./images/img/banner.png'}
+                    width = "100%"
+                    height= "auto"
+                />
             </div>
             <TripsSearch />
             <SlidesComponent />
